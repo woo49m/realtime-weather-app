@@ -114,6 +114,16 @@ const Cog = styled(CogIcon)`
   cursor: pointer;
 `;
 
+const SettingButtonTtile = styled.span`
+  position: absolute;
+  top: 17px;
+  right: 35px;
+
+  height: 15px;
+  font-size: 12px;
+  color: ${({ theme }) => theme.textColor};
+`;
+
 const WeatherCard = ({
   weatherElement,
   moment,
@@ -123,6 +133,7 @@ const WeatherCard = ({
 }) => {
   return (
     <WeatherCardWrapper>
+      <SettingButtonTtile>更換地區</SettingButtonTtile>
       <Cog onClick={() => setCurrentPage("WeatherSetting")} />
       <Location>{cityName}</Location>
       <Description>
