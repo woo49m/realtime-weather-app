@@ -6,21 +6,22 @@ const WeatherSettingWrapper = styled.div`
   position: relative;
   min-width: 360px;
   box-shadow: ${({ theme }) => theme.boxShadow};
-  background-color: ${({ theme }) => theme.foregroundColor};
+  border-radius: 10px;
+  background-color: rgba(31, 32, 34, 0.9);
   box-sizing: border-box;
-  padding: 20px;
+  padding: 30px;
 `;
 
 const Title = styled.div`
   font-size: 28px;
-  color: ${({ theme }) => theme.titleColor};
+  color: #f5f5f5;
   margin-bottom: 30px;
 `;
 
 const StyledLabel = styled.label`
   display: block;
   font-size: 16px;
-  color: ${({ theme }) => theme.textColor};
+  color: #f5f5f5;
   margin-bottom: 15px;
 `;
 
@@ -28,11 +29,11 @@ const StyledInputList = styled.input`
   display: block;
   box-sizing: border-box;
   background: transparent;
-  border: 1px solid ${({ theme }) => theme.textColor};
+  color: #f5f5f5;
   outline: none;
   width: 100%;
   max-width: 100%;
-  color: ${({ theme }) => theme.textColor};
+  color: #f5f5f5;
   font-size: 16px;
   padding: 7px 10px;
   margin-bottom: 40px;
@@ -76,7 +77,7 @@ const ButtonGroup = styled.div`
 
 const Back = styled.button`
   && {
-    color: ${({ theme }) => theme.textColor};
+    color: #f5f5f5;
     border-color: ${({ theme }) => theme.textColor};
   }
 `;

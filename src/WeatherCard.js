@@ -12,20 +12,21 @@ const WeatherCardWrapper = styled.div`
   position: relative;
   min-width: 360px;
   box-shadow: ${({ theme }) => theme.boxShadow};
-  background-color: ${({ theme }) => theme.foregroundColor};
+  border-radius: 10px;
+  background-color: rgba(31, 32, 34, 0.9);
   box-sizing: border-box;
-  padding: 30px 15px;
+  padding: 60px 40px;
 `;
 
 const Location = styled.div`
   font-size: 28px;
-  color: ${({ theme }) => theme.titleColor};
+  color: #f5f5f5;
   margin-bottom: 20px;
 `;
 
 const Description = styled.div`
   font-size: 16px;
-  color: ${({ theme }) => theme.textColor};
+  color: #f5f5f5;
   margin-bottom: 30px;
 `;
 
@@ -37,7 +38,7 @@ const CurrentWeather = styled.div`
 `;
 
 const Temperature = styled.div`
-  color: ${({ theme }) => theme.temperatureColor};
+  color: #f5f5f5;
   font-size: 96px;
   font-weight: 300;
   display: flex;
@@ -53,7 +54,7 @@ const AirFlow = styled.div`
   align-items: center;
   font-size: 16x;
   font-weight: 300;
-  color: ${({ theme }) => theme.textColor};
+  color: #f5f5f5;
   margin-bottom: 20px;
 
   svg {
@@ -68,8 +69,7 @@ const Rain = styled.div`
   align-items: center;
   font-size: 16x;
   font-weight: 300;
-  color: ${({ theme }) => theme.textColor};
-
+  color: #f5f5f5;
   svg {
     width: 25px;
     height: auto;
@@ -84,8 +84,7 @@ const Redo = styled.div`
   font-size: 12px;
   display: inline-flex;
   align-items: flex-end;
-  color: ${({ theme }) => theme.textColor};
-
+  color: #f5f5f5;
   svg {
     margin-left: 10px;
     width: 15px;
@@ -121,7 +120,7 @@ const SettingButtonTtile = styled.span`
 
   height: 15px;
   font-size: 12px;
-  color: ${({ theme }) => theme.textColor};
+  color: #f5f5f5;
 `;
 
 const WeatherCard = ({

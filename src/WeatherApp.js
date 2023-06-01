@@ -8,8 +8,10 @@ import useWeatherApi from "./useWeatherApi.js";
 import WeatherSetting from "./WeatherSetting.js";
 import { findLocation } from "./utils.js";
 
+import earthview from "./images/asia-earthview.jpg";
+
 const Container = styled.div`
-  background-color: ${({ theme }) => theme.backgroundColor};
+  background-image: url(${earthview});
   height: 100%;
   display: flex;
   align-items: center;
