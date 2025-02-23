@@ -2,43 +2,34 @@ import { useState, useEffect, useCallback } from "react";
 
 const fetchCurrentWeather = (locationName) => {
   return fetch(
-    `https://opendata.cwb.gov.tw/api/v1/rest/datastore/O-A0003-001?Authorization=CWB-559199CB-505D-46CE-9C68-F1490CEE2040&limit=5&format=JSON&locationName=${locationName}`
+    `https://opendata.cwa.gov.tw/api/v1/rest/datastore/O-A0003-001?Authorization=CWB-559199CB-505D-46CE-9C68-F1490CEE2040&limit=5&format=JSON&StationName=${locationName}`
   )
     .then((response) => response.json())
     .catch((e) => {
       console.log(`${e.message}`);
     })
     .then((data) => {
-      const locationData = data.records.location[0];
-
-      // STEP 2：將風速（WDSD）、氣溫（TEMP）和濕度（HUMD）的資料取出
-      const weatherElements = locationData.weatherElement.reduce(
-        (neededElements, item) => {
-          if (["WDSD", "TEMP", "HUMD"].includes(item.elementName)) {
-            neededElements[item.elementName] = item.elementValue;
-          }
-          return neededElements;
-        },
-        {}
-      );
+      const locationData = data.records.Station[0];
+      const weatherElements = locationData.WeatherElement
 
       return {
-        observationTime: locationData.time.obsTime,
-        locationName: locationData.locationName,
-        temperature: weatherElements.TEMP,
-        windSpeed: weatherElements.WDSD,
-        humid: weatherElements.HUMD,
+        observationTime: locationData.ObsTime.DateTime,
+        locationName: locationData.StationName,
+        temperature: weatherElements.AirTemperature,
+        windSpeed: weatherElements.WindSpeed,
+        humid: weatherElements.RelativeHumidity,
       };
     });
 };
 
 const fetchWeatherForecast = (cityName) => {
   return fetch(
-    `https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-559199CB-505D-46CE-9C68-F1490CEE2040&locationName=${cityName}`
+    `https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-559199CB-505D-46CE-9C68-F1490CEE2040&locationName=${cityName}`
   )
     .then((response) => response.json())
     .then((data) => {
       const locationData = data.records.location[0];
+      console.log(locationData);
       const weatherElements = locationData.weatherElement.reduce(
         (neededElements, item) => {
           if (["Wx", "PoP", "CI"].includes(item.elementName)) {

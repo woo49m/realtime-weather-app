@@ -87,7 +87,6 @@ const WeatherApp = () => {
   );
 
   useEffect(() => {
-    alert(currentLocation.cityName);
     setCurrentTheme(moment === "day" ? "light" : "dark");
     // 記得把 moment 放入 dependencies 中
   }, [moment]);
