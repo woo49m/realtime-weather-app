@@ -152,7 +152,7 @@ const WeatherCard = ({
       </AirFlow>
       <Rain>
         <RainIcon />
-        {Math.round(weatherElement.humid * 100)} %
+        {Math.round(weatherElement.humid)} %
       </Rain>
       <Redo onClick={fetchData} isLoading={weatherElement.isLoading}>
         最後觀測時間 :{" "}
